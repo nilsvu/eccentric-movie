@@ -1,0 +1,100 @@
+Include:
+  - Datasources
+  - Resolutions/Medium
+
+View:
+  Background: [1., 1., 1.]
+
+Animation:
+  Speed: 100
+  Crop: [6000, 20000]
+
+WaveformToVolume:
+  Size: 50
+  EllMax: 2
+  RadialScale: 8.
+  Polarizations: ["Plus"]
+
+VolumeRepresentation:
+  ColorBy: Plus strain
+  ScalarOpacityUnitDistance: 2.
+
+CameraShots:
+  - Position: [0, 100, 0]
+    ViewUp: [0., 0., 1.]
+    FocalPoint: [0., 0., 0.]
+    ViewAngle: 60.
+
+TransferFunctions:
+  - Field: Age
+    TransferFunction:
+      Custom:
+        Points:
+          - Position: 0
+            Opacity: 0
+          - Position: 0
+            Opacity: 1.
+          - Position: 200
+            Opacity: 0
+          - Position: 300
+            Opacity: 0
+        Colormap:
+          Name: Grayscale
+          Invert: True
+
+Trajectories:
+  - Name: PrimaryObject
+    Tail:
+      LineWidth: 2
+      ColorBy: Age
+      # Visibility:
+      #   Start: 0
+      #   End: 6930
+      #   FadeOut:
+      #     TimeMode: Scene
+      #     Time: 30
+  - Name: SecondaryObject
+    Tail:
+      LineWidth: 2
+      ColorBy: Age
+      # Visibility:
+      #   Start: 0
+      #   End: 6980.45
+      #   FadeOut:
+      #     TimeMode: Scene
+      #     Time: 30
+
+Horizons:
+  - Name: PrimaryHorizon
+    # Visibility:
+    #   Start: 0
+    #   End: 6980.45
+    Representation:
+      Representation: Surface
+      AmbientColor: [0., 0., 0.]
+      DiffuseColor: [0., 0., 0.]
+      Specular: 0.2
+      SpecularPower: 10
+      SpecularColor: [1., 1., 1.]
+  - Name: SecondaryHorizon
+    # Visibility:
+    #   Start: 0
+    #   End: 6980.45
+    Representation:
+      Representation: Surface
+      AmbientColor: [0., 0., 0.]
+      DiffuseColor: [0., 0., 0.]
+      Specular: 0.2
+      SpecularPower: 10
+      SpecularColor: [1., 1., 1.]
+  # - Name: CommonHorizon
+  #   # Visibility:
+  #   #   Start: 6980.45
+  #   #   End: 8000
+  #   Representation:
+  #     Representation: Surface
+  #     AmbientColor: [0., 0., 0.]
+  #     DiffuseColor: [0., 0., 0.]
+  #     Specular: 0.2
+  #     SpecularPower: 10
+  #     SpecularColor: [1., 1., 1.]
